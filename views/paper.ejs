@@ -1,0 +1,22 @@
+<div class="links">
+    <table>
+        <tr>
+        <th>S.No.</th>
+        <th>Paper Name</th>
+        <th>Year</th>
+        <th>Posted By</th>
+        <th>Download Link</th>
+    </tr>
+    <%for(let count;count<finalpaper.lenght;count++){%>
+        <tr>
+            <td><%=count+1%></td>
+            <td><%=finalpaper[count].papername%></td>
+            <td><%=finalpaper[count].year%></td>
+            <td><%=finalpaper[count].postBy%></td>
+            <td><%=finalpaper[count].postDate%></td>
+            <td>Link</td>
+        </tr>
+        <%}%> 
+    
+    </table>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vip Registration</title>
+</head>
+<body>
+
+    <form method="post" action="/home/vip-register">
+        <label for="name">Name:</label>
+        <input type="text" name="vipreq[name]" id="name">
+        <label for="course">Courses:</label>
+        <select name="vipreq[course]" class="course" >
+            <option selected disabled>Select Your Cource</option>
+            <%for(course of courses){%>
+                <option value="<%=course._id%>"><%=course.course%></option>
+            <%}%>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" name="vipreq[newcourse]" id="newcourse" placeholder="Enter your Course" hidden>
+        <label for="department">Department:</label>
+        <select name="vipreq[department]" id="department" onchange="depart()">
+            <option selected disabled>Select Your Department</option>
+        </select>
+        <input type="text" name="vipreq[newdept]" id="newdept" placeholder="Enter your department" hidden>
+        <label for="mob">Mobile Number</label>
+        <input type="number" name="vipreq[num]" id="mob">
+        <label for="email">Email:</label>
+        <input type="email" name="vipreq[email]" id="email">
+        <label for="post">Post:</label>
+        <input type="text" name="vipreq[post]" id="post">
+        <button>Send</button>
+    </form>
+    <script src="/help.js"></script>   
+        
+</body>
+</html>
+

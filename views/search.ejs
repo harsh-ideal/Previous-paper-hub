@@ -1,0 +1,26 @@
+<div>
+<form method="get" action="/home/search/found">
+    <div>
+        <label for="dept">Department:</label>
+        <input type="text" placeholder="<%=dept%>" disabled id="label">
+    </div>
+<div>
+    <%=course%>
+    <label for="semester">Course:</label>
+    <input type="tex" name="sem" placeholder="<%=course%>" disabled id="semester">
+</div>
+<div>
+    <label for="paper"></label>
+    <select name="paper" id="paper">
+        <option selected disabled>Select paper</option>
+        <%for(paper of papers){%>
+            <option value="<%=paper._id%>"><%=paper.papername%></option>
+        <%}%>
+    </select>
+</div>
+<button>Search</button>
+</form>
+</div>
+
+    
+   

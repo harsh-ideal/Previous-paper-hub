@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>VBSPU Question bank</title>
+</head>
+<body>
+    
+    <div id="nav">
+        <div id="nav-logo"><img src="./imgs/logo.png" alt="logo"></div>
+        <div id="nav-title"> <img src="./imgs/previous-paper-hub-high-resolution-logo-transparent.png" alt=""></div>
+        <div class="nav-btn"><button><a href="">Contact</a></button></div>
+        <div class="nav-btn"><button><a href="">About</a></button></div>
+        <div class="nav-btn"> <button><a href="">Search</a></button></div>
+        <div class="nav-btn"><button class="vip" >V I P</button></div>
+        <form method="get" action="/admin/reqlist">
+            <button>Registerd list</button>
+          </form>
+          <form method="get" action="/admin/addpaper">
+            <button>Add Paper</button>
+          </form>
+    </div>
+    <div id="quote">
+        <div id="quote-content">
+            <h1>स्वागत है <br><img src="./imgs/welcome-back.png" alt=""style="width:3rem; margin-left:1rem"><% for( let index = 0; index < 2; index++ ) { %>
+            &nbsp;<% } %>आपके V.B.S.P University Paper Hub में</h1>
+            <h3></h3>
+            <h4>By:</h4>
+         </div>
+        <div id="quote-imgs">
+            <img src="./imgs/quote-img.png" alt="">
+        </div>
+    </div>
+    <div id="about">
+        <h2>About Our Website</h2>
+        <p>Civil Servants for the East India Company used to be nominated by the Directors
+            of the Company and thereafter trained at Haileybury College in London and then sent to
+            India. Following Lord Macaulay’s Report of the Select Committee of British Parliament,
+            the concept of a merit based modern Civil Service in India was introduced in 1854. The
+            Report recommended that patronage based system of East India Company should be
+            replaced by a permanent Civil Service based on a merit based system with entry
+            through competitive examinations. For this purpose, a Civil Service Commission was
+            setup in 1854 in London and competitive examinations were started in 1855. Initially,
+            the examinations for Indian Civil Service were conducted only in London. Maximum age
+            was 23 years and minimum age was 18 years. The syllabus was designed such that
+            European Classics had a predominant share of marks. All this made it difficult for Indian
+            candidates. Nevertheless, in 1864, the first Indian, Shri Satyendranath Tagore brother
+            of Shri Rabindaranath Tagore succeeded. Three years later 4 other Indians succeeded.
+            Throughout the next 50 years, Indians petitioned for simultaneous examinations to be
+            held in India without success because the British Government did not want many
+            Indians to succeed and enter the ICS. It was only after the First World War and the
+            Montagu Chelmsford reforms that this was agreed to. From 1922 onwards the Indian
+            Civil Service Examination began to be held in India also, first in Allahabad and later in
+            Delhi with the setting up of the Federal Public Service Commission. The Examination in
+            London continued to be conducted by the Civil Service Commission.</p>
+    </div>
+    <div id="search">
+        <div id="search-form">
+            <form method="get" action="/home/search">
+                <div>
+                    <label for="cource">Cource:</label>
+                    <select id="course" onchange="nextchoose()" name="course">
+                        
+                        <option selected disabled>Select Your Cource</option>
+                        <%for(course of courses){%>
+                        <option value="<%=course._id%>"><%=course.course%></option>
+                        <%}%>
+                    </select>
+                </div>
+                <div>
+                    <label for="department">Department</label>
+                    <select id="department" name="dept">
+                        <option selected disabled>Select Your Department</option>
+                        
+                    </select>
+                </div>
+                <div><button>Search</button></div>
+            </form>
+        </div>
+        <div id="search-imgs"></div>
+    </div>
+    <div id="comment">
+        <div id="comment-imgs"></div>
+        <div id="coment"></div>
+    </div>
+    <div id="footer"></div>
+
+
+
+
+    <div class="overlay"></div>
+    <div class="popup" >
+        <span class="close">&times</span>
+        <div class="card">
+          <img src="\imgs\prof.png" alt="proffesor" />
+          <h3>Are You Want to contribute ?</h3>
+          <form method="get" action="/home/login">
+          <button>Login</button>
+        </form>
+        <form method="get" action="/home/vip-register">
+          <button>Register</button>
+        </form>
+        </div>
+        <div class="card">
+          <img id="tom" src="\imgs\admin.png" alt="Admin" />
+          <h3>Are You a Admin of this Website?</h3>
+          <form method="get" action="/home/login">
+          <button>Login</button>
+        </form>
+        </div>
+      </div>
+
+      
+      <script src="./app.js"></script>      
+</body>
+</html>

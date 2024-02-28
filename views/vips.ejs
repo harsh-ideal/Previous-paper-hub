@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Request</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Mob. Number</th>
+            <th>Email</th>
+            <th>Post</th>
+            <th>Accept/Decline</th>
+        </tr>
+        <%for(let req of reqs){%>
+            <tr>
+                <td><%=req.name%></td>
+                <td><%=req.course%></td>
+                <td><%=req.newcourse%></td>
+                <td><%=req.department%></td>
+                <td><%=req.newdept%></td>
+                <td><%=req.num%></td>
+                <td><%=req.mail%></td>
+                <td><%=req.post%></td>
+                <td><form method="post" action="/admin/req/<%=req.id%>/vip"><button>Accept</button></form>
+                <form method="post" action="/admin/req/<%=req.id%>?_method=delete"><button>Delete</button></form></td>
+            </tr>
+        <%}%>
+    </table>
+</body>
+</html>
