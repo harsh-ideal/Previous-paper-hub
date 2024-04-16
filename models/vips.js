@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
 const {Schema}=mongoose;
+const passlocalmongo=require('passport-local-mongoose');
 const vipSchema=new mongoose.Schema({
     name:{
         type:String
@@ -15,14 +16,11 @@ const vipSchema=new mongoose.Schema({
     num:{
         type:String
     },
-    email:{
-        type:String
-    },
     post:{
         type:String
     }
 });
-
+vipSchema.plugin(passlocalmongo);
 const Vip=mongoose.model('Vip',vipSchema);
 
 module.exports=Vip;

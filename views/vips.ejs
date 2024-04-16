@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of Request</title>
-</head>
+<% layout("/layout/boilerplate.ejs")%>
 <body>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Department</th>
-            <th>Mob. Number</th>
-            <th>Email</th>
-            <th>Post</th>
-            <th>Accept/Decline</th>
-        </tr>
-        <%for(let req of reqs){%>
-            <tr>
-                <td><%=req.name%></td>
-                <td><%=req.course%></td>
-                <td><%=req.newcourse%></td>
-                <td><%=req.department%></td>
-                <td><%=req.newdept%></td>
-                <td><%=req.num%></td>
-                <td><%=req.mail%></td>
-                <td><%=req.post%></td>
-                <td><form method="post" action="/admin/req/<%=req.id%>/vip"><button>Accept</button></form>
-                <form method="post" action="/admin/req/<%=req.id%>?_method=delete"><button>Delete</button></form></td>
-            </tr>
-        <%}%>
-    </table>
+    <%- include('./includes/navbar.ejs') %>
+    <%- include('./includes/flashes.ejs') %>
+    <div class="mt-5">
+        <h2>Request's List</h2>
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Name</th>
+                    <th onclick="sortTable(1)">Course <br> (Department)</th>
+                    <th onclick="sortTable(2)">Email</th>
+                    <th onclick="sortTable(3)">Post</th>
+                    <th onclick="sortTable(4)">Accept/ <br>Decline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let req of reqs){%>
+                    <tr>
+                        <td><%=req.name%></td>
+                        
+                            <td><%=req.coursename%> <br> (<%=req.deptname%>)</td>
+                        <td><%=req.username%></td>
+                        <td><%=req.post%></td>
+                        <td><form method="post" action="/admin/req/<%=req.id%>/vip"><button style="background-color: green; margin-top: 1rem;">Accept</button></form>/
+                        <form method="post" action="/admin/req/<%=req.id%>?_method=delete"><button style="background-color: red; margin-top: 1rem;">Delete</button></form></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 3rem; margin-bottom: 5rem; opacity: 0.6;"></div>
+        <%if(!reqs.length){%>
+            <div style="text-align: center; margin-top: 6rem; margin-bottom: 5rem; opacity: 0.6;"><h3>No Request Are Available Now</h3></div>
+            <%}%>
+    </div>
+
+
+    
+      <%- include('./includes/footer.ejs') %>
+    <script src="./app.js"></script> 
+    <script src="/vip.js"></script>
+    
 </body>
-</html>

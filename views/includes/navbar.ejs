@@ -1,0 +1,26 @@
+
+<div id="nav">
+    <div id="nav-logo"><a href="/pph"><img src="/imgs/logo.png" alt="logo"></a></div>
+    <div id="nav-title"><a href="/pph"><img src="/imgs/previous-paper-hub-high-resolution-logo-transparent.png" alt="jsj"></a></div>
+    <div class="dropdown">
+    <div class="navbar-toggle">
+        <button onclick="toggleMenu()">Menu</button>
+    </div>
+    <div class="navbar-links" id="navbarLinks">
+    <%if(current){%>
+        <div class="nav-btn"><a href="/vips/logout">Logout</a></div>
+    <%if(current.username=="harshideal2002@gmail.com"){%>
+        <div class="nav-btn"><a href="/pph/reqlist">Requests</a></div>
+        <%}%>
+        
+    <%}%>
+    <div class="nav-btn"><a href="/pph/addpaper">Contribute</a></div>
+    <%if(!current){%>
+        <div class="nav-btn"><a class="vip" >V I P</a></div>
+        <%}%>
+    <div class="nav-btn"><a href="/pph/syllabus">Syllabus</a></div>
+    <div class="nav-btn"><a href="/pph#s">Search</a></div>
+    <div class="nav-btn"><a href="/pph#a">About</a></div>    
+    </div>
+</div>
+</div>

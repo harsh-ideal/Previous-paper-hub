@@ -1,4 +1,5 @@
 document.querySelector("#course").addEventListener("change",courses);
+document.querySelector("#syllabuscourse").addEventListener("change",courses);
 
           
 
@@ -9,5 +10,4 @@ document.querySelector("#course").addEventListener("change",courses);
             if(course.value=='other'){
               newcourse.removeAttribute('hidden');
             }
-
             }

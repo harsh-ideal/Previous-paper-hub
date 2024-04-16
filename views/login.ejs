@@ -1,50 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body{
-            text-align: center;
-        }h1{
-            margin-top: 5rem;
-            color:#0f4c81;
-        }.main{
-            border: 1px solid #0f4c81;
-            height: 60rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }.form{
-            width: 20rem;
-            height: 20rem;
-            
-            border: 1px solid #0f4c81;
-            box-shadow: #0f4c81 5px;
-        }.form div{
-            margin:1rem 0rem 2rem 0rem;
-
-        }
-
-    </style>
-    <title>Login Page</title>
-</head>
+<% layout("/layout/boilerplate.ejs")%>
 <body>
-    <div class="main">
-    <h1>Login Here</h1>
-    <div class="form">
-        <form action="">
-            <div>
-                <label for="mail">Email:</label>
-                <input type="email" name="" id="mail">
-            </div>
-            <div>
-            <label for="pass">Password</label>
-            <input type="password" name="" id="pass">
+    <%- include('./includes/navbar.ejs') %>
+    <%if(login_plzz && login_plzz.length){%>
+        <div class="success-container" id="success-Container">
+            <span class="close-button" onclick="closeSuccessMessage()">×</span>
+            <div class="success-message error" id="successMessage"><%=login_plzz%></div>
         </div>
-            <input type="button" name="" id="" value="Login">
+        <div class="extra-space"></div>
+    <%}%>
+    <div class="container">
+        <form action="/pph/vip-login" method="post" class="form-control">
+            <h2>Login Here</h2>
+            <div class="form-group">
+                <label for="mail">Email:</label>
+                <input type="email" name="username" id="mail" required>
+                <div class="error-message">Please enter a valid username.</div>
+            </div>
+            <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" name="password" id="pass" required>
+            <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
+            <button>Login</button>
+        </div>
+        <h5>If you are new User the <a href="/pph/vip-register">register</a> your self </h5>
         </form>
     </div>
-</div>
+
+    <div class="overlay"></div>
+    <div class="popup" >
+        <span class="close">&times</span>
+        <div class="card">
+          <img src="\imgs\prof.png" alt="proffesor" />
+          <h3>Are You Want to contribute ?</h3>
+          <form method="get" action="/pph/vip-login">
+          <button>Login</button>
+        </form>
+        <form method="get" action="/pph/vip-register">
+          <button>Register</button>
+        </form>
+        </div>
+        <div class="card">
+          <img id="tom" src="\imgs\admin.png" alt="Admin"/>
+          <h3>Are You a Admin of this Website?</h3>
+          <form method="get" action="/pph/login">
+          <button>Login</button>
+        </form>
+        </div>
+      </div>
+    <%- include('./includes/footer.ejs') %>
+    <script src="./app.js"></script> 
 </body>
-</html>

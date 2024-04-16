@@ -1,20 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Paper</title>
-</head>
+<% layout("/layout/boilerplate.ejs")%>
 <body>
-    <form method="post" action="/admin/addpaper">
+    <%- include('./includes/navbar.ejs') %>
+    
+    <div class="instruction">
+        <h3>Please read instructions carefully before contributing</h3>
+        <ul>
+            <li><b>Please Write code properly in Capital Letter.</b></li>
+            <li><b>Please write subject/paper name in full form ,not in short form.</b></li>
+            <li><b>Please upload file in pdf form only.And it must be less than 2MB</b></li>
+            <li><b>If your Course and Department is not available then only then choose other and  write correct course/department name because it are saved permanently in database.</b></li>
+            <li><b>Please fill all  information carefully and standarable formate.</b></li>
+
+        </ul>
+    </div>
+    <div class="container">
+        <div class="radios">
+        <div class="radio1">
+        <input type="radio" id="radio1" name="formSelection" value="form1" checked>
+    <label for="radio1">Add Paper</label>
+    </div>
+    <div class="radio2">
+    <input type="radio" id="radio2" name="formSelection" value="form2">
+    <label for="radio2">Add Syllabus</label>
+    </div>
+    </div>
+    <form method="post" id="form1" class="form-control" action="/pph/addpaper" enctype="multipart/form-data">
+        <h2>Add Paper</h2>
+        <div class="form-group">
+            <label for="name">Subject code:</label>
+            <input type="text" name="code" id="code" required>
+            <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
         <label for="name">Paper Name:</label>
-        <input type="text" name="paper" id="name">
+        <input type="text" name="paper" id="name" required>
+        <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
         <label for="year">Year:</label>
-        <input type="text" name="year" id="year">
-        <label for="paper"></label>
-        <input type="file" name="pdf" id="paper">
+        <input type="text" name="year" id="year" required>
+        <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
+        <label for="paper">Upload Paper</label><span style="font-size: 0.8rem; color:rgb(255, 165, 0);">( &#9733 Pdf size will must less than 2MB)</span>
+        <input type="file" name="paper_pdf" id="paper" required>
+        </div>
+        <div class="form-group">
         <label for="course">Courses:</label>
-        <select name="cours" class="course" >
+        <select name="cours" class="course" required>
             <option selected disabled>Select Cource</option>
         <%for(course of courses){%>
             <option value="<%=course._id%>"><%=course.course%></option>
@@ -22,13 +55,71 @@
         <option value="other">Other</option>
         </select>
         <input type="text" name="newcourse" id="newcourse" placeholder="Enter your Course" hidden>
+        </div>
+        <div class="form-group">
         <label for="department">Department:</label>
-        <select name="department" id="department" onchange="depart()">
+        <select name="department" id="department" onchange="depart()" required>
             <option selected disabled>Select Department</option>
         </select>
         <input type="text" name="newdept" id="newdept" placeholder="Enter your department" hidden>
+        </div>
+        <div class="form-group">
         <button>Add Paper</button>
+        </div>
     </form>
+    <form method="post" action="/pph/addsyllabus" id="form2" class="form-control" style="display: none;"  enctype="multipart/form-data">
+        <h2>Add Syllabus</h2>
+        <div class="form-group">
+            <label for="name">Subject code:</label>
+            <input type="text" name="code" id="code" required>
+            <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
+        <label for="name">Subject Name:</label>
+        <input type="text" name="subject" id="name" required>
+        <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
+            <label for="course">Courses:</label>
+            <select name="cours" class="scourse" required>
+                <option selected disabled>Select Cource</option>
+            <%for(course of courses){%>
+                <option value="<%=course._id%>"><%=course.course%></option>
+            <%}%>
+            <option value="other">Other</option>
+            </select>
+            <input type="text" name="newcourse" id="snewcourse" placeholder="Enter your Course" hidden>
+            </div>
+            <div class="form-group">
+            <label for="department">Department:</label>
+            <select name="department" id="sdepartment" onchange="sdepart()" required>
+                <option selected disabled>Select Department</option>
+            </select>
+            <input type="text" name="newdept" id="snewdept" placeholder="Enter your department" hidden>
+            </div>
+        <div class="form-group">
+        <label for="semester">Semester</label>
+        <input type="text" name="semester" id="semester" required>
+        <div class="error-message">Please enter a valid username.</div>
+        </div>
+        <div class="form-group">
+        <label for="syllabus">Upload Syllabus</label>
+        <input type="file" name="syllabus_pdf" id="syllabus" required>
+        </div>
+        
+        <div class="form-group">
+        <button>Add Paper</button>
+        </div>
+    </form>
+    </div>
+
+    
+
+    
+
+
+
+    <%- include('./includes/footer.ejs') %>
     <script src="/help.js"></script>
+    <script src="/app.js"></script> 
 </body>
-</html>

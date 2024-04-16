@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
 const {Schema}=mongoose;
+
 const vipRSchema=new Schema({
     name:{
         type:String
@@ -21,13 +22,17 @@ const vipRSchema=new Schema({
     num:{
         type:String,
     },
-    email:{
-        type:String
+    username:{
+        type:String,
     },
     post:{
         type:String
+    },
+    pass:{
+        type:String,
     }
 });
+
 
 const Vip_Request=mongoose.model('Vip_Request',vipRSchema);
 

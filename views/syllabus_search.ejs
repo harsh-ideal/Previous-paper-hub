@@ -1,0 +1,50 @@
+<% layout("/layout/boilerplate.ejs")%>
+    <body>
+        <%- include('./includes/navbar.ejs') %>
+        <div class="container">
+<form method="post" class="form-control" action="/pph/syllabus/search">
+    <div class="form-group">
+        <label for="cource">Cource:</label>
+        <select id="course" onchange="nextchoose()" name="course" required>
+            
+            <option value="" selected disabled>Select Your Cource</option>
+            <%for(course of courses){%>
+            <option value=<%=course._id%>><%=course.course%></option>
+            <%}%>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" name="depts" onchange="nextcode()" required>
+            <option value="" selected disabled>Select Your Department</option>
+            
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="code">Subject</label>
+        <select id="code" name="sy" required>
+            <option value="" selected disabled>Select Your Subject</option>
+        </select>
+    </div>
+
+    <div class="form-group"><button>Search</button></div>
+</form>
+</div>
+
+<div class="overlay"></div>
+    <div class="popup" >
+        <span class="close">&times</span>
+        <div class="card">
+          <img src="\imgs\prof.png" alt="proffesor" />
+          <div class="card-content">
+          <h3>Are You Want To Contribute ?</h3>
+          <div class="btn-container">
+          <a href="/pph/vip-login" class="card-btn">Login</a>
+          <a href="/pph/vip-register" class="card-btn">Register</a>
+          </div>
+        </div>
+        </div>
+      </div>
+<%- include('./includes/footer.ejs') %>
+<script src="/help.js"></script>
+    </body>

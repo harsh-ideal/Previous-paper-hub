@@ -1,0 +1,36 @@
+<% layout("/layout/boilerplate.ejs")%>
+<body>
+    <%- include('./includes/navbar.ejs') %>
+    <div class="mt-5">
+        <h2>Paper's List</h2>
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">S.No.</th>
+                    <th onclick="sortTable(1)">Name</th>
+                    <th onclick="sortTable(2)">Course/Department <br>/Year</th>
+                    <th onclick="sortTable(2)">Comment</th>
+                    <th onclick="sortTable(2)">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let count=0;count<comment.length;count++){%>
+                    <tr>
+                        <td><%=count+1%></td>
+                        <td><%=comment[count].name%></td>
+                        <td><%=comment[count]. course_year_department%></td>
+                        <td><%=comment[count].comment%></td>
+                        <td><button class="form-group" style="background-color: red; text-decoration: none; margin-top: 1rem;"><a href="/admin/comment/<%=comment[count]._id%>">Delete</a></button></td>
+                    </tr>
+                    <%}%> 
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align: center; margin-top: 4rem; margin-bottom: 5rem; opacity: 0.6;"></div>
+    <%if(!comment.length){%>
+        <div style="text-align: center; margin-top: 6rem; margin-bottom: 5rem; opacity: 0.6;"><h3>No Comments Are Available Now</h3></div>
+        <%}%>
+</div>
+    <%- include('./includes/footer.ejs') %>
+    <script src="/app.js"></script> 
+</body>

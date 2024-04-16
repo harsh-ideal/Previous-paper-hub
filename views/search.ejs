@@ -1,26 +1,40 @@
-<div>
-<form method="get" action="/home/search/found">
-    <div>
-        <label for="dept">Department:</label>
-        <input type="text" placeholder="<%=dept%>" disabled id="label">
-    </div>
-<div>
-    <%=course%>
-    <label for="semester">Course:</label>
-    <input type="tex" name="sem" placeholder="<%=course%>" disabled id="semester">
-</div>
-<div>
-    <label for="paper"></label>
-    <select name="paper" id="paper">
-        <option selected disabled>Select paper</option>
-        <%for(paper of papers){%>
-            <option value="<%=paper._id%>"><%=paper.papername%></option>
-        <%}%>
-    </select>
-</div>
-<button>Search</button>
-</form>
-</div>
+<% layout("/layout/boilerplate.ejs")%>
+<body>
+    <%- include('./includes/navbar.ejs') %>
+    <div class="container">
+        <form method="get" class="form-control" action="/pph/search/paper">
+            <h2>Search You Paper</h2>
+            <div class="form-group">
+                <label for="dept">Department:</label>
+                <input type="text"  placeholder="<%=depts.deptname%>"  disabled id="label">
+            </div>
+        <div class="form-group">
+            <label for="semester">Course:</label>
+            <input type="text" placeholder="<%=course.course%>" disabled id="semester">
 
+        </div>
+        <div class="search-select-container form-group">
+            <label for="paper">Search Your Paper:</label> <span style="font-size: 0.8rem; color:rgb(255, 165, 0);">(Please select given option only)</span>
+            <input type="text" name="paper" id="real-paper"  hidden>
+            
+            <input type="text" class="search-select-input" id="paper" placeholder="Write Your Paper name Or Code..." oninput="filterOptions(event)">
+            
+            <div class="search-select-dropdown" id="searchSelectDropdown">
+                <%for(paper of papers){%>
+                    <div class="search-select-option" onclick="selectOption(this)"><%=paper.code%><%=paper.papername%>,<i hidden><%=paper._id%></i></div>
+                <%}%>
+                <!-- Add more options as needed -->
+            </div>
+        </div>
+        <div class="form-group">
+            <button>Search</button>
+        </div>
+    </form>
+        </div>
+        
+        
     
-   
+        <%- include('./includes/footer.ejs') %>
+        <script src="/help.js"></script>
+        <script src="/app.js"></script> 
+</body>

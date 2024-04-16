@@ -1,11 +1,11 @@
 const mongoose=require('mongoose');
 const Course = require('./course');
 const {Schema}=mongoose;
-const paperSchema=new Schema({
+const syllabusSchema=new Schema({
     code:{
         type:String,
     },
-    papername:{
+    subjectname:{
         type:String,
     },
     dept:{
@@ -16,21 +16,26 @@ const paperSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:'Courses'
     },
-    paper:[{
+    semester:{
+        type:String,
+    },
+    syllabus:[{
         year:{
             type:String,
         },
         link:{
-            url:String,
-            filename:String,
+            surl:String,
+            sfilename:String,
         },
         postBy:{
             name:String,
             email:String,
         }
     }],
+    
+
 });
 
-const Paper=mongoose.model('Paper',paperSchema);
+const Syllabus=mongoose.model('Syllabus',syllabusSchema);
 
-module.exports=Paper;
+module.exports=Syllabus;

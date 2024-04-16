@@ -1,0 +1,86 @@
+.mt-5{
+    margin-top: 8rem;
+}
+
+.mt-5 h2{
+    margin-left:2rem ;
+    margin-bottom: 1rem;
+}
+
+.table th {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Table Rows */
+.table td, .table th {
+    padding: 12px;
+    white-space: nowrap; /* Prevent line breaks within cells */
+}
+
+/* Alternating Row Colors */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover Effect */
+.table tbody tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Border */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Responsive Table for Phones */
+@media screen and (max-width: 376px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+    .table thead, .table tbody, .table th, .table td, .table tr {
+        display: block;
+    }
+    .table tbody tr {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+    .table tbody tr:last-child {
+        border-bottom: none;
+    }
+    .table tbody td {
+        text-align: left;
+        position: relative;
+        padding-left: 50%;
+    }
+    .table tbody td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+}
+
+/* Responsive Table for Laptops */
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .table td,
+    .table th {
+        padding: 8px;
+    }
+}
+
+
+*{
+    font-family: 'Poppins';
+}

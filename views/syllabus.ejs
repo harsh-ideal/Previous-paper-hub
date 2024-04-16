@@ -2,37 +2,39 @@
 <body>
     <%- include('./includes/navbar.ejs') %>
     <div class="mt-5">
-        <h2>Paper's List</h2>
+        <h2>Syllabus's List</h2>
         <table class="table table-striped" id="myTable">
             <thead>
                 <tr>
                     <th onclick="sortTable(0)">S.No.</th>
                     <th onclick="sortTable(1)">Code</th>
-                    <th onclick="sortTable(2)">Paper's Name</th>
+                    <th onclick="sortTable(2)">Subject's Name</th>
                     <th onclick="sortTable(3)">Year</th>
                     <th onclick="sortTable(4)">PostBy</th>
                     <th onclick="sortTable(5)">Download here</th>
                 </tr>
             </thead>
             <tbody>
-                <%for(let count=0;count<finalpaper.length;count++){%>
+                <%for(let count=0;count<finalsyllabus.length;count++){%>
                     <tr>
                         <td><%=count+1%></td>
                         <td><%=code%></td>
                         <td><%=name%></td>
-                        <td><%=finalpaper[count].year%></td>
-                        <td><%=finalpaper[count].postBy.name%> <br> (<%=finalpaper[count].postBy.email%>)</td>
-                        <td><a href="<%=finalpaper[count].link.url%>" target="_blank">Download</a></td>
+                        <td><%=finalsyllabus[count].year%></td>
+                        <td><%=finalsyllabus[count].postBy.name%> <br> (<%=finalsyllabus[count].postBy.email%>)</td>
+                        <td><a href="<%=finalsyllabus[count].link.surl%>" target="_blank">Download</a></td>
                     </tr>
                     <%}%> 
             </tbody>
         </table>
     </div>
+
     <div style="text-align: center; margin-top: 4rem; margin-bottom: 5rem; opacity: 0.6;"></div>
-    <%if(!finalpaper.length){%>
-        <div style="text-align: center; margin-top: 6rem; margin-bottom: 5rem; opacity: 0.6;"><h3>No paper Are Available Now</h3></div>
+    <%if(!finalsyllabus.length){%>
+        <div style="text-align: center; margin-top: 6rem; margin-bottom: 5rem; opacity: 0.6;"><h3>No Syllabus Are Available Now</h3></div>
         <%}%>
 </div>
+
     <%- include('./includes/footer.ejs') %>
     <script src="/app.js"></script> 
 </body>

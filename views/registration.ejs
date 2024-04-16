@@ -1,39 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vip Registration</title>
-</head>
+<% layout("/layout/boilerplate.ejs")%>
 <body>
 
-    <form method="post" action="/home/vip-register">
+    <%- include('./includes/navbar.ejs') %>
+    <%- include('./includes/flashes.ejs') %>
+    <div class="container">
+        
+    <form method="post" class="form-control" id="emailvalid" action="/pph/vip-register">
+        <h2>Register Your self</h2>
+        <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" name="vipreq[name]" id="name">
+        <input type="text" name="vipreq[name]" id="name" placeholder="Enter your name" required>
+        <div class="error-message">Please enter your full name</div>
+    </div>
+    <div class="form-group">
         <label for="course">Courses:</label>
-        <select name="vipreq[course]" class="course" >
+        <select name="vipreq[course]" class="course" required >
             <option selected disabled>Select Your Cource</option>
             <%for(course of courses){%>
                 <option value="<%=course._id%>"><%=course.course%></option>
             <%}%>
             <option value="other">Other</option>
         </select>
-        <input type="text" name="vipreq[newcourse]" id="newcourse" placeholder="Enter your Course" hidden>
+        <input type="text" name="vipreq[newcourse]" id="newcourse" placeholder="Enter your Course" hidden title="">
+    </div>
+    <div class="form-group">
         <label for="department">Department:</label>
-        <select name="vipreq[department]" id="department" onchange="depart()">
+        <select name="vipreq[department]" id="department" onchange="depart()" required>
             <option selected disabled>Select Your Department</option>
         </select>
-        <input type="text" name="vipreq[newdept]" id="newdept" placeholder="Enter your department" hidden>
+        <input type="text" name="vipreq[newdept]" id="newdept" placeholder="Enter your department" hidden title="">
+    </div>
+    <div class="form-group">
         <label for="mob">Mobile Number</label>
-        <input type="number" name="vipreq[num]" id="mob">
+        <input type="tel" name="vipreq[num]" id="mob" title="" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Enter your Phone number" required>
+        <div class="error-message">Please enter a valid phone number</div>
+    </div>
+    <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" name="vipreq[email]" id="email">
+        <input type="email" name="vipreq[email]" id="email" title="" placeholder="Enter your valid Email" required>
+        <div class="error-message">Please enter a valid Email address</div>
+    </div>
+    <div class="form-group">
         <label for="post">Post:</label>
-        <input type="text" name="vipreq[post]" id="post">
-        <button>Send</button>
+        <input type="text" name="vipreq[post]" id="post" placeholder="Enter your identification post like Facilty/CR" required>
+        <div class="error-message">Please enter your ideantification post</div>
+    </div>
+    <div class="form-group">
+        <label for="pass">Password:</label>
+        <input type="password" name="vipreq[pass]" id="pass" placeholder="Enter your password" required>
+        <div class="error-message">Please enter password</div>
+    </div>
+    <div class="form-group">
+        <button>Send Request</button>
+    </div>
     </form>
+    <h5>If you are already registered then <a href="/pph/vip-login">login here</a> </h5>
+    </div>
+
+    
+      <%- include('./includes/footer.ejs') %>
     <script src="/help.js"></script>   
+    
         
 </body>
-</html>
 

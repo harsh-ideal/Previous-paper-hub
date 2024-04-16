@@ -1,0 +1,63 @@
+
+<%if(loggedIn && loggedIn.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message" id="successMessage"><%=loggedIn%></div>
+    </div>
+<%}%>
+<%if(request && request.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message" id="successMessage"><%=request%></div>
+    </div>
+<%}%>
+<%if(available && available.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message" id="successMessage"><%=available%></div>
+    </div>
+<%}%>
+<%if(paperAdded && paperAdded.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message" id="successMessage"><%=paperAdded%></div>
+    </div>
+<%}%>
+
+<%if(deletecontro && deletecontro.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message" id="successMessage"><%=deletecontro%></div>
+    </div>
+<%}%>
+
+<!-- Login-page-flashes -->
+
+<%if(login_plzz && login_plzz.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message error" id="successMessage"><%=login_plzz%></div>
+    </div>
+    <div class="extra-space"></div>
+<%}%>
+  
+
+
+<!-- Register-page-flashes -->
+<%if(already && already.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message error" id="successMessage"><%=already%></div>
+    </div>
+    <div class="extra-space"></div>
+<%}%>
+
+<!-- Reqlist-page-flashes -->
+
+<%if(alreadyexist && alreadyexist.length){%>
+    <div class="success-container" id="success-Container">
+        <span class="close-button" onclick="closeSuccessMessage()">×</span>
+        <div class="success-message error" id="successMessage"><%=alreadyexist%></div>
+    </div>
+    <div class="extra-space"></div>
+<%}%>
