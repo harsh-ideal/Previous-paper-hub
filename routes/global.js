@@ -1,3 +1,4 @@
+const {storage}=require('../cloudConfig.js');
 const express=require("express");
 const router=express.Router();
 const passport=require('passport');
@@ -9,12 +10,13 @@ const Course=require('../models/course.js');
 const Comment=require('../models/comment.js');
 const wrapasync=require("../utils/asyncWrap.js");
 const {isLoggedin}=require('../middleware.js');
-const {storage}=require('../cloudConfig.js');
 const multer=require("multer");
 const Syllabus = require("../models/syllabus.js");
-const upload=multer({
-    storage:storage,
-limits:{fileSize:2*1024*1024}}); 
+// const upload=multer({
+//     storage:storage,
+// limits:{fileSize:2*1024*1024}}); 
+
+const upload=multer({storage});
 
 passport.use(new Localstrategy(
     function(username, password, done) {
@@ -159,6 +161,7 @@ router.route('/addpaper')
         await target.save();
         department=target.dept[target.dept.length-1]._id;
     }
+    
     let url=req.file.path;
     let filename=req.file.filename;
     let name=req.user.name;

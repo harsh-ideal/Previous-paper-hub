@@ -22,8 +22,8 @@ const admin=require("./routes/admin.js");
 const wrapasync=require("./utils/asyncWrap.js");
 const expressError=require("./utils/ExpressError.js");
 const Syllabus = require('./models/syllabus.js');
-const dburl=process.env.ATLASDB_URL;
-
+// const dburl=process.env.ATLASDB_URL;
+const dburl="mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.3"
 main().then(()=>console.log("mongo")).catch((err)=>console.log(err));
 
 
