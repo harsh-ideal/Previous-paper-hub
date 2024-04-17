@@ -93,7 +93,10 @@ app.use("/pph",global);
 app.use("/vips",vip);
 app.use("/admin",admin);
 
-
+app.get("/",wrapasync(async (req,res)=>{
+    let courses=await Course.find();
+    res.render('home.ejs',{courses});
+}));
 
 app.get('/data/:id',wrapasync(async (req, res) => {
     let {id}=req.params;
