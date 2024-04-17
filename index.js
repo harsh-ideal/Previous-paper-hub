@@ -88,6 +88,10 @@ app.use((err,req,res,next)=>{
     res.status(status).send(message);
 })
 
+app.use((req,res,next)=>{
+    res.locals.current=req.user;
+    next();
+});
 
 app.use("/pph",global);
 app.use("/vips",vip);
