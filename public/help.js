@@ -183,3 +183,23 @@ function fetchData() {
         })
         .catch(error => console.error('Error fetching data:', error));
 }
+
+
+function validateEmail(email) {
+  // Regular expression pattern for validating email addresses
+  var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return pattern.test(email);
+}
+
+function validateForm() {
+  var emailInput = document.getElementById("email");
+  var email = emailInput.value.trim();
+
+  if (validateEmail(email)) {
+      alert("Valid email address.");
+      return true;
+  } else {
+      alert("Invalid email address.");
+      return false;
+  }
+}

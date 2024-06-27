@@ -5,7 +5,7 @@
     <%- include('./includes/flashes.ejs') %>
     <div class="container">
         
-    <form method="post" class="form-control" id="emailvalid" action="/pph/vip-register">
+    <form method="post" class="form-control" id="emailvalid" onsubmit="return validateForm()" action="/pph/vip-register">
         <h2>Register Your self</h2>
         <div class="form-group">
         <label for="name">Name:</label>

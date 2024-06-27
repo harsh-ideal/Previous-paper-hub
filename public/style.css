@@ -37,8 +37,9 @@
 #nav-logo img{
     width: 75%;
     margin: 1rem 0rem 0rem 1.5rem;
-    border: 5px dashed #0f4c81;
+    border: 3px dashed #0f4c81;
     border-radius: 1rem;
+    padding: 5px 4px;
 }
 #nav-title{
     width: 30%;

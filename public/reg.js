@@ -11,3 +11,6 @@ document.querySelector("#syllabuscourse").addEventListener("change",courses);
               newcourse.removeAttribute('hidden');
             }
             }
+
+
+           

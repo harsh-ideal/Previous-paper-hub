@@ -1,4 +1,4 @@
-const {storage}=require('../cloudConfig.js');
+
 const express=require("express");
 const router=express.Router();
 const passport=require('passport');
@@ -9,6 +9,7 @@ const Paper = require('../models/papers.js');
 const Course=require('../models/course.js');
 const Comment=require('../models/comment.js');
 const wrapasync=require("../utils/asyncWrap.js");
+const {storage}=require('../cloudConfig.js');
 const {isLoggedin}=require('../middleware.js');
 const multer=require("multer");
 const Syllabus = require("../models/syllabus.js");

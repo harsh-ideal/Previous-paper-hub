@@ -23,7 +23,7 @@
                             <td><%=vip.coursename%> <br> (<%=vip.deptname%>)</td>
                         <td><%=vip.username%></td>
                         <td><%=vip.post%></td>
-                        <td><a href="/admin/contro/<%=vip.id%>">All contros</a></td>
+                        <td><a href="/admin/contro?id=<%=vip.id%>">All contros</a></td>
                         <td><form method="post" class="form-group" action="/admin/contributers/<%=vip.id%>?_method=delete"><button style="background-color: red; margin-top: 1rem;" onclick="alert(`Did You want to remove this contributer?`)">Remove</button></form></td>
                     </tr>
                 <%}%>
